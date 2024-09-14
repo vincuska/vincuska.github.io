@@ -61,8 +61,6 @@ html::-webkit-scrollbar {
 }
 
 #days-nobg {
-    -moz-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
     position: fixed;
     bottom: 0;
@@ -71,8 +69,6 @@ html::-webkit-scrollbar {
 }
 
 #utopia {
-    -moz-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
     position: fixed;
     bottom: 0;
@@ -81,7 +77,12 @@ html::-webkit-scrollbar {
 }
 
 #disco {
-    background-color: #D2BFBA;
+    background-color: #2B1F1D;
+}
+
+h1, p, .album-cover, #utopia, #days-nobg {
+    opacity: 0;
+    animation: loader 1s ease 0s 1 normal forwards;
 }
 
 body::after {
@@ -103,6 +104,7 @@ body::after {
     user-select: none;
     padding-left: 5px;
     padding-top: 15px;
+    cursor: pointer;
 }
 
 .nav-link {
@@ -111,7 +113,7 @@ body::after {
     user-select: none;
     font-family: Akkurat, sans-serif;
     font-size: 20px;
-    color: #fff !important;
+    color: #fff;
     opacity: 0.7;
     text-decoration: none;
     text-align: right;
@@ -121,7 +123,7 @@ body::after {
 }
 
 #disco .nav-link {
-    color: #5E4F5B !important;
+    color: #9C5541;
     opacity: 1;
 }
 
@@ -192,7 +194,7 @@ body::after {
     text-align: center;
     font-family: Knit, sans-serif;
     font-size: 4rem;
-    color: #5E4F5B;
+    color: #9C5541;
     text-transform: uppercase;
 }
 
@@ -245,19 +247,7 @@ body::after {
     }
 }
 
-@keyframes swimIn {
-	0% {
-		transform: translateY(50px);
-        opacity: 0;
-	}
-
-	100% {
-		transform: translateY(0);
-        opacity: 1;
-	}
-}
-
-@keyframes fadeIn {
+@keyframes loader {
 	0% {
 		opacity: 0;
 	}
@@ -265,29 +255,4 @@ body::after {
 	100% {
 		opacity: 1;
 	}
-}
-
-.swim-in {
-    opacity: 0;
-    animation: swimIn 0.5s ease 0s 1 normal forwards;
-}
-
-.swim-in-delay {
-    opacity: 0;
-    animation: swimIn 0.5s ease 0.05s 1 normal forwards;
-}
-
-.swim-in-delay-2 {
-    opacity: 0;
-    animation: swimIn 0.5s ease 0.1s 1 normal forwards;
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 0.5s ease 0.1s 1 normal forwards;
-}
-
-.fade-in-delay {
-    opacity: 0;
-    animation: fadeIn 0.5s ease 0.1s 1 normal forwards;
 }
