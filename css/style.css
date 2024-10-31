@@ -75,7 +75,7 @@ html::-webkit-scrollbar {
     background-color: #2B1F1D;
 }
 
-h1, p, .album-cover, #utopia, #days-nobg {
+h1, p, .album-cover, #utopia, #days-nobg, #concerts .card, #concerts .card h5, #concerts h3, #concerts li {
     opacity: 0;
     animation: loader 1s ease 0s 1 normal forwards;
 }
