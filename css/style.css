@@ -46,11 +46,6 @@ html::-webkit-scrollbar {
     background-color: #070609;
 }
 
-#concerts {
-    background-color: #070606;
-    background-image: url(../img/stars.jpg);
-}
-
 #about {
     background-color: #264CA5;
     background-image: url(../img/dbr.png);
@@ -85,7 +80,7 @@ h1, p, .album-cover, #utopia, #days-nobg {
     animation: loader 1s ease 0s 1 normal forwards;
 }
 
-body::after {
+#home::after, #about::after, #disco::after {
     content: "";
     position: absolute;
     top: 0;
@@ -181,7 +176,7 @@ body::after {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, border-radius 0.3s ease;
+    transition: transform 0.3s ease-out, border-radius 0.3s ease;
     border-radius: 10px;
 }
 
@@ -196,6 +191,55 @@ body::after {
     font-size: 4rem;
     color: #9C5541;
     text-transform: uppercase;
+}
+
+#concerts {
+    font-family: Akkurat, sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    background-color: #070606;
+    background-image: url(../img/grain-concerts.png);
+}
+
+#concerts h3 {
+    font-family: Akkurat, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#concerts li {
+    font-family: Akkurat, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#concerts h1 {
+    font-family: Astroworld, sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+#concerts .gomb {
+    font-family: Akkurat, sans-serif;
+    background: #9C5541;
+    background-size: 200%;
+    border: none;
+}
+
+#concerts .card p {
+    font-size: 14px;
+}
+
+#concerts .card h5 {
+    font-size: 20px;
+}
+
+#concerts .card {
+    margin-bottom: 10%;
 }
 
 @media (max-width: 1400px) {
