@@ -12,18 +12,39 @@
             padding: 0;
             background: #181818;
             color: #fff;
+            font-family: sans-serif;
         }
 
         img {
             display: block;
             margin: 0 auto;
-            width: 28%;
-            border-radius: 1vw;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
         }
 
         h1 {
-            font-size: 1.75vw;
+            font-size: 2rem;
             text-align: center;
+            margin: 1rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            img {
+                width: 40%;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            img {
+                width: 28%;
+            }
+            h1 {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
