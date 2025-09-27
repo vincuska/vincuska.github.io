@@ -1,100 +1,227 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <title>vince</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://framerusercontent.com/images/48dNnJRToneArGcAjzoBsbwEFM.png" rel="icon">
-    <title>Árad a TISZA!</title>
     <style>
+        @font-face {
+            font-family: Satoshi;
+            src: url(Satoshi.ttf);
+        }
+
+        * {
+            cursor: url(https://sweezy-cursors.com/wp-content/uploads/cursor/old-roblox/old-roblox-cursor-32x32.png), auto;
+            -webkit-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        html,
         body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            background: #181818;
-            color: #fff;
-            font-family: sans-serif;
+            box-sizing: border-box;
+            font-family: 'Satoshi', sans-serif;
         }
 
-        img {
-            display: block;
+        body {
+            min-height: 100vh;
+            min-width: 100vw;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            z-index: 0;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 6, 30, .3);
+        }
+
+        .card-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .glass-card {
+            position: relative;
+            width: 600px;
+            max-width: 92vw;
             margin: 0 auto;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 10px;
+            background: rgba(27, 27, 27, 0);
+            border-radius: 20px;
+            backdrop-filter: blur(35px);
+            padding: 35px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(80px);
+            animation: swim-in 1.1s cubic-bezier(.44, 1.5, .55, 1) .06s 1 forwards;
         }
 
-        h1 {
-            font-size: 2rem;
+        @keyframes swim-in {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-img {
+            width: 118px;
+            height: 118px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            background: #222;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-anim-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .name-title {
+            font-size: 39.5px;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0px 0px 16.5px #ffffff;
+            z-index: 1;
+            position: relative;
+            font-family: inherit;
+        }
+
+        .sparkle-gif {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -40%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 1;
+        }
+
+        .subtitle {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+            color: #ffbb48;
+            font-family: monospace;
             text-align: center;
-            margin: 1rem 0;
+            min-height: 1.5em;
+            user-select: text;
         }
 
-        @media (min-width: 768px) {
-            img {
-                width: 40%;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
+        .connections {
+            display: flex;
+            gap: 9px;
+            margin-top: 18px;
+            padding: 0 15px;
+            justify-content: center;
         }
 
-        @media (min-width: 1200px) {
-            img {
-                width: 28%;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
+        .conn-link {
+            filter: drop-shadow(#ffffff 1px 0 7px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(.44, 1.5, .55, 1);
         }
 
-        iframe {
-            display: block;
-            margin: 20px auto;
-            width: 100%;
-            max-width: 500px;
-            height: 498px;
-            border-radius: 10px;
+        .conn-link:hover {
+            transform: scale(1.1);
         }
 
-        @media (max-width: 500px) {
-            iframe {
-                width: 95%;
-                height: 400px;
+        @media (max-width: 520px) {
+            .glass-card {
+                padding: 34px 6vw 26px 6vw;
             }
-        }
 
-        img {
-            display: block !important;
-            margin: 0 auto !important;
+            .profile-img {
+                width: 72px;
+                height: 72px;
+            }
+
+            .name-title {
+                font-size: 1.55rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>🤡 Fidesz Miklós 🤡</h1>
-    <img
-        src="https://cdn.discordapp.com/attachments/1352027616202330256/1416865681307340972/Ra9JLhvsPfhLb3sWUFge.png?ex=68cd03be&is=68cbb23e&hm=61d4da474741b2aeb34ea8d71363e0f149efe258809ab82952318a964f7b8058&">
-    <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmiklos.sztolar%2Fposts%2Fpfbid0phjovDjDrDoWJBrPJwDCY16aJm8rDRqUGVuQZGrVhu8gTrwc8p1MPVVsf8NmhAal&show_text=false&width=500"
-        width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-    <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmiklos.sztolar%2Fposts%2Fpfbid02bJMBDvkfGfxTh19XzM6hXd5Qy4bA8YjDQ8va81TNTY2oUx6HrPDfH7KTU4xWiEzhl&show_text=false&width=500"
-        width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-    <iframe
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmiklos.sztolar%2Fposts%2Fpfbid0226KU5gFLYnJJeCv39qiaRkobXKHSDRUrPozRJVfA77wStYZjbqoxgEXRza7bwe6wl&show_text=false&width=500"
-        width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    <div class="bg-overlay"></div>
+    <div class="card-container">
+        <div class="glass-card">
+            <img style="user-select: none;"
+                src="https://private-user-images.githubusercontent.com/70941169/494786623-fef31c51-38e2-4d1b-930f-fadecb9a8735.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTkwMDQwODgsIm5iZiI6MTc1OTAwMzc4OCwicGF0aCI6Ii83MDk0MTE2OS80OTQ3ODY2MjMtZmVmMzFjNTEtMzhlMi00ZDFiLTkzMGYtZmFkZWNiOWE4NzM1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA5MjclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwOTI3VDIwMDk0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU2OGI0NmVlODViNDE0YjczOWU4M2M5MGE3M2YwMzc2ZDk3MTFlNWEwMGZhNGViNjJkZmRmOTJmZDc1MmRkOTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.whK-XUW782MITklU8gLnfDInH9i3RIsiT27EJL9tnf8" alt="profile"
+                class="profile-img" id="profile-img">
+            <div class="name-anim-container">
+                <img src="sparkle_white.gif" alt="" class="sparkle-gif" id="sparkle-gif" draggable="false"
+                    aria-hidden="true">
+                <span class="name-title" id="name-title">vince</span>
+            </div>
+            <div class="subtitle">😛</div>
+            <div class="connections">
+                <a class="conn-link" href="https://www.instagram.com/nagyvince" title="Instagram" aria-label="Discord"
+                    target="_blank">
+                    <img width="36px" height="36px" src="instagram.png" alt="instagram">
+                </a>
+                <a class="conn-link" href="https://www.github.com/vincuska" title="Github" aria-label="Github"
+                    target="_blank">
+                    <img width="36px" height="36px" src="github.png" alt="github">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const frames = ["@vince", "@vinc", "@vin", "@vi", "@v", "@", "@v", "@vi", "@vin", "@vinc"];
+        let current = 0;
+        function animateTitle() {
+            document.title = frames[current];
+            current = (current + 1) % frames.length;
+            setTimeout(animateTitle, 1000);
+        }
+        animateTitle();
+
+        function fitSparkleGifToText() {
+            const nameTitle = document.getElementById('name-title');
+            const gif = document.getElementById('sparkle-gif');
+            if (!nameTitle || !gif) return;
+            const rect = nameTitle.getBoundingClientRect();
+            gif.style.width = rect.width + "px";
+            gif.style.height = rect.height + "px";
+        }
+
+        document.getElementById('sparkle-gif').playbackRate = 0.5
+
+        window.addEventListener('DOMContentLoaded', fitSparkleGifToText);
+        window.addEventListener('resize', fitSparkleGifToText);
+    </script>
 </body>
 
 </html>
-
-
-
