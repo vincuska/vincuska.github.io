@@ -206,7 +206,7 @@
         function animateTitle() {
             document.title = frames[current];
             current = (current + 1) % frames.length;
-            setTimeout(animateTitle, 1000);
+            setTimeout(animateTitle, 500);
         }
         animateTitle();
 
